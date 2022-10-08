@@ -1,7 +1,35 @@
 //import express
 import express from "express";
+import cookieParser from "cookie-parser";
+import logger from 'morgan';
+import session from 'express-session';
+
+import path, {dirname} from 'path';
+import { fileURLToPath } from "url";
+//get path from application and translate to dirname
+const_dirname = dirname{fileURLToPath(import.meta.url)};
 
 const app = express();
+
+//setup ViewEnginer EJS
+app.set('views', path.join)(__dirname, '/views');
+app.set('view engine', 'ejs');
+
+app.use(logger('dev')); 
+app.use(express.json());
+app.use(express.urlencoded({ extended: false}));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, '../public')));
+app.use(session({
+    secret: Secret,
+    saveUninitialized: false,
+    resave: false
+}));
+
+// Use Routes
+app.use('/', indexRouter);
+
+
 function helloWorld(req, res, next) {
 
     res.setHeader('Content-Type', 'text/plain');
