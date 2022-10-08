@@ -1,6 +1,7 @@
-const connect = require('connect');
+//import express
+import express from "express";
 
-const app = connect();
+const app = express();
 function helloWorld(req, res, next) {
 
     res.setHeader('Content-Type', 'text/plain');
