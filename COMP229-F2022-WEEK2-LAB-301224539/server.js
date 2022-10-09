@@ -26,7 +26,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false}));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static(path.join(__dirname, '/public')));
 app.use(session({
     secret: Secret,
     saveUninitialized: false,
@@ -35,11 +35,8 @@ app.use(session({
 
 // Use Routes
 app.use('/', indexRouter);
-
-
 //linking indexrouter to external application
 
- app.use('/hello',helloWorld);
 
 
 app.listen(3000);
