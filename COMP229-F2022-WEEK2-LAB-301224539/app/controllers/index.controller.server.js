@@ -1,6 +1,13 @@
+
+ /*
+ COMP229 Assign 1
+ Janelle-Nicole Forbes
+ 301224539
+ October 8, 2022
+ */
 //index controller exportable and can be called wherever
 
- // Index Controller
+// Index Controller
 
 export function displayHomePage(req, res, next){
     //render needs name of ejs template 
