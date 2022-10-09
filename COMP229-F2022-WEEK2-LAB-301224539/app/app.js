@@ -25,14 +25,15 @@ import indexRouter from '../app/routes/index.route.server.js';
 const app = express();
 
 //setup ViewEnginer EJS
-app.set('views', path.join)(__dirname, '/app/views');
+app.set('views', path.join)(__dirname, '/views');
 app.set('view engine', 'ejs');
 
 app.use(logger('dev')); 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false}));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, '/public')));
+//parent public folder
+app.use(express.static(path.join(__dirname, '../public')));
 app.use(session({
     secret: Secret,
     saveUninitialized: false,
@@ -44,8 +45,12 @@ app.use('/', indexRouter);
 //linking indexrouter to external application
 
 
-
+/*
 app.listen(3000);
 
 
 console.log('Server running at http://localhost:3000/');
+*/
+
+//export instance
+export default app;
